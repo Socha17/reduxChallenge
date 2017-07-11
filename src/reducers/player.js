@@ -29,7 +29,7 @@ export default function Player(state=initialState, action) {
 		const addPlayerList = [...state.players, {
 				name: action.name,
 				score: 0,
-				created: new Date()
+				created: "new"
 		}];
       return {
         ...state,
@@ -37,22 +37,31 @@ export default function Player(state=initialState, action) {
       };
 
     case PlayerActionTypes.REMOVE_PLAYER:
-      return [
-        ...state.slice(0, action.index),
-        ...state.slice(action.index + 1)
-      ];
+			const  removePlayerList = [
+				...state.players.slice(0, action.index),
+				...state.players.slice(action.index + 1)
+			]
+      return {
+				...state,
+				players: removePlayerList
+      };
 
-    case PlayerActionTypes.UPDATE_PLAYER_SCORE:
-      return state.map((player, index) => {
+    case PlayerActionTypes.UPDATE_PLAYER_SCORE: {
+      const updatePlayerList = state.players.map((player, index) => {
         if(index === action.index) {
           return {
             ...player,
             score: player.score + action.score,
-						updated: new Date()
+						updated: "now"
           };
         }
         return player;
       });
+			return {
+				...state,
+				players: updatePlayerList
+			};
+		}
 
 			case PlayerActionTypes.SELECT_PLAYER:
 				return {
