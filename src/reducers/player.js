@@ -1,5 +1,6 @@
 import * as PlayerActionTypes from '../actiontypes/player';
 
+	// initial data
 const initialState = {
 	players: [{
 		name: 'Jim Hoskins',

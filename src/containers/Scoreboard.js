@@ -7,6 +7,7 @@ import Player from '../components/Player';
 import AddPlayerForm from '../components/AddPlayerForm';
 import PlayerDetail from '../components/PlayerDetail';
 
+    // get props
 class Scoreboard extends Component {
   static propTypes = {
     players: PropTypes.array.isRequired

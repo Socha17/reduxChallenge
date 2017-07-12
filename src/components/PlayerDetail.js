@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 
+  // detail page
 const PlayerDetail = ({ selectedPlayer }) => {
   if(selectedPlayer){
     return (
